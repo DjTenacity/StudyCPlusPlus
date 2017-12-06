@@ -27,9 +27,33 @@
     <ClCompile Include="3.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="友元函数与运算符重载.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="继承与多态.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Jet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Copter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyTeacher.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Jet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Copter.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

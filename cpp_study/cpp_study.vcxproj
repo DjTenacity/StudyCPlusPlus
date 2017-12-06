@@ -67,10 +67,18 @@
     <ClCompile Include="1.cpp" />
     <ClCompile Include="2.cpp" />
     <ClCompile Include="3.cpp" />
+    <ClCompile Include="Copter.cpp" />
+    <ClCompile Include="Jet.cpp" />
     <ClCompile Include="MyTeacher.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="友元函数与运算符重载.cpp" />
+    <ClCompile Include="继承与多态.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Copter.h" />
+    <ClInclude Include="Jet.h" />
     <ClInclude Include="MyTeacher.h" />
+    <ClInclude Include="Plane.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="C:\Users\Administrator\Desktop\浅拷贝问题.jpg" />
