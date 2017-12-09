@@ -68,10 +68,16 @@
     <ClCompile Include="2.cpp" />
     <ClCompile Include="3.cpp" />
     <ClCompile Include="Copter.cpp" />
+    <ClCompile Include="io.cpp" />
     <ClCompile Include="Jet.cpp" />
     <ClCompile Include="MyTeacher.cpp" />
     <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="stl.cpp" />
+    <ClCompile Include="stl_2.cpp" />
     <ClCompile Include="友元函数与运算符重载.cpp" />
+    <ClCompile Include="异常.cpp" />
+    <ClCompile Include="模板类.cpp" />
+    <ClCompile Include="类型转换.cpp" />
     <ClCompile Include="继承与多态.cpp" />
   </ItemGroup>
   <ItemGroup>

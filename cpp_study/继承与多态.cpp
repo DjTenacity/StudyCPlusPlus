@@ -90,7 +90,7 @@ class Student : public Person, public Citizen{
 
 };
 
-//继承的二义性
+//继承的二义性,譬如   B1,B2都继承了A,C同时继承了B1,B2
 //虚继承，不同路径继承来的同名成员只有一份拷贝，解决不明确的问题
 /*
 class A{
@@ -221,7 +221,7 @@ void myswap(T& a, T& b){
 	b = tmp;
 }
 
-void main(){
+void mainp(){
 	//根据实际类型，自动推导
 	int a = 10, b = 20;
 	myswap<int>(a, b);
@@ -233,3 +233,5 @@ void main(){
 
 	system("pause");
 }
+
+//如果一个源文件,既有函数的声明又有函数的实现,这个源文件的后缀名就会是  .hpp

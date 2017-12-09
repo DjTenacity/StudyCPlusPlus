@@ -42,6 +42,24 @@
     <ClCompile Include="Copter.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="异常.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="模板类.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="类型转换.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="io.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stl_2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyTeacher.h">
