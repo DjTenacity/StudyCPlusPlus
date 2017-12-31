@@ -1,0 +1,92 @@
+当命令特别复杂的时候,将其写到 脚本文件里面.
+bshell  cshell  -->给linux内核发送指令
+
+
+写命令-->执行命令-->操作linux内核-->
+
+
+
+#从官网下的FFmpeg要注意执行一下configure这个文件才行,然后去执行脚本才能编译(,需要生成common.mak、library.mak等文件,NDK路径的问题)
+
+#全局变量，多个shell脚本都可以使用
+export ANDROID_NDK_HOME=/usr/ndk/android-ndk-r10e
+export PLATFORM_VERSION=android-9
+
+
+编译ffmpeg  (--disable-yasm  yasm是一个软件,这里是屏蔽它,防止使用)
+编写shell脚本之前，要执行./configure --disable-yasm，
+主要目录进行一系列的准备工作，
+比如说检查gcc的版本，会生成config.mak等文件
+
+(很多C/C++ 的代码都要执行一下config,检查一下环境,生成相应的文件)shell脚本切记小心空格,一行很长,那就 空格+\ 来换行,后面切记不能有空格,但是可以有tab
+
+
+ 
+target-os  操作系统
+prefix是说动态库编译完了放置的位置
+PREFIX变量名用大写,pwd代表当前文件
+--enable-shared 生成动态库
+--disable-static 不生成静态库
+ffplay播放器
+ffprobe播放信息
+ffserver流媒体,服务器推流的
+doc文档
+
+cross-prefix交叉编译(windows下编译linux的东西,Linux编译arm的指令等等)
+//CROSS_COMPILE交叉编译 工具的路径
+//sysroot 编译arm一些额外的东西
+--extra-cflags="-fpic"  GCC编译参数
+---------------------------------------------
+
+#!/bin/bash
+
+#全局变量,多个shell脚本都可以使用
+export ANDROID_NDK_HOME=/usr/ndk/android-ndk-r10e
+export PLATFORM_VERSION=android-9
+
+function build_ffmpeg
+{
+	echo "start builder ffmpeg"
+	./configure --target-os=linux \
+	--prefix=$PREFIX \
+	--arch=$ARCH \
+	--enable-shared \
+	--disable-static \
+	--disable-yasm \
+	--disable-ffmpeg \
+	--disable-ffplay \
+	--disable-ffprobe \
+	--disable-ffserver \
+	--disable-doc \
+	--enable-cross-compile \
+	--cross-prefix=$CROSS_COMPILE \
+	--sysroot=$PLATFORM \
+	--extra-cflags="-fpic"
+	make clean
+	make
+	make install
+
+	echo "build finished $ARCH"
+}
+
+#exec 1>jason_build_stdout.txt
+#exec 2>jason_build_stdout.txt
+#arm
+ARCH=arm
+CPU=arm
+PREFIX=$(pwd)/android/$CPU
+TOOLCHAIN=$ANDROID_NDK_HOME/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64
+CROSS_COMPILE=$TOOLCHAIN/bin/arm-linux-androideabi-
+PLATFORM=$ANDROID_NKD_HOME/platforms/$PLATFORM_VERSION/arch-$ARCH
+build_ffmpeg
+
+#x86
+ARCH=x86
+CPU=x86
+PREFIX=$(pwd)/android/$CPU
+TOOLCHAIN=$ANDROID_NDK_HOME/toolchains/x86-4.9/prebuilt/linux-x86_64
+CROSS_COMPILE=$TOOLCHAIN/bin/i686-linux-android-
+PLATFORM=$ANDROID_NKD_HOME/platforms/$PLATFORM_VERSION/arch-$ARCH
+
+build_ffmpeg
+

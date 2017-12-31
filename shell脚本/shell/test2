@@ -1,0 +1,7 @@
+total 20
+drwxr-xr-x  3 root root 4096 Sep 28 20:36 .
+drwxr-xr-x 11 root root 4096 Sep 26 20:45 ..
+-rwxr-----  1 root root  262 Sep 28 20:35 01.sh
+drwxr-xr-x  2 root root 4096 Sep 28 20:23 bak
+-rw-r--r--  1 root root    0 Sep 28 20:36 test2
+-rw-r--r--  1 root root   23 Sep 28 20:36 test3
